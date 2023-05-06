@@ -15,18 +15,24 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
 
+    //Controller to get all the contacts
     @GetMapping("/getAllContacts")
     public List<Contact> getAllContacts() {
+
         return contactService.getAllContacts();
     }
 
+    //Controller to get contact By ID
     @GetMapping("/{id}")
     public Contact getContactById(@PathVariable int id) {
+
         return contactService.getContactById(id);
     }
 
+    //  Controller to Add new user in
     @PostMapping("")
     public Contact createContact(@RequestBody Contact contact) {
+
         return contactService.createContact(contact);
     }
 
@@ -37,11 +43,13 @@ public class ContactController {
 
     @DeleteMapping("/{id}")
     public void deleteContact(@PathVariable int id) {
+
         contactService.deleteContact(id);
     }
 
     @GetMapping("/searchByField")
     public List<Contact> searchContacts(@RequestParam String field) {
+
         return contactService.searchContacts(field);
     }
 }
